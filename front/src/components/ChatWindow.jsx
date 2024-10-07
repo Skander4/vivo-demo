@@ -26,6 +26,7 @@ const ChatWindow = () => {
     };
 
     const handleFileUpload = (event) => {
+        event.preventDefault();
         const file = event.target.files[0];
         const reader = new FileReader();
 
@@ -67,7 +68,7 @@ const ChatWindow = () => {
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                     placeholder="Type a message..."
                 />
-                <input type="file" onChange={handleFileUpload} />
+                <input key={Math.random().toString(36)} type="file" onChange={handleFileUpload} />
                 <button onClick={handleSendMessage}>Send</button>
             </div>
         </div>
